@@ -1,0 +1,8 @@
+patchgap is MIT licensed (see LICENSE). The code in src/ and tools/ is original.
+
+bench/data/ and examples/*/targets/ contain unmodified third-party Solidity files
+used only as test inputs. Each keeps its own SPDX license header:
+  - OpenZeppelin Contracts (MIT), Solady (MIT), Uniswap Permit2 (MIT), Solmate MerkleProofLib (MIT).
+  - Solmate ERC20.sol is AGPL-3.0-only. It is NOT redistributed here: run
+    `python bench/fetch_data.py` to download it into bench/data/neg/ (git-ignored).
+Source URLs and sha256 of every file are listed in bench/data/MANIFEST.tsv.

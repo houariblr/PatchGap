@@ -1,0 +1,13 @@
+[package]
+name = "patchgap"
+version = "0.1.0"
+edition = "2021"
+description = "Finds Solidity code that still carries a known pre-patch snippet"
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
