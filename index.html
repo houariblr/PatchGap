@@ -1,0 +1,201 @@
+<title>PatchGap</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: a full-screen galaxy. Each release is a star placed by the golden angle (sunflower spiral), oldest at the core. The scan is a shockwave leaving the patch. Text floats in the four corners. */
+:root{
+  --bg:#04050a; --fg:#eceffa; --mute:#8d95ad; --line:rgba(255,255,255,.12); --glass:rgba(10,12,22,.62);
+  --red:#ff4d5e; --green:#3ddc97; --amber:#ffb547; --gray:#8d95ad; --gold:#ffe9b8;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--display);overflow:hidden;
+  background-image:radial-gradient(900px 600px at 70% 30%,rgba(90,60,200,.16),transparent 65%),radial-gradient(800px 700px at 20% 80%,rgba(255,77,94,.09),transparent 65%),radial-gradient(600px 600px at 50% 50%,rgba(255,233,184,.05),transparent 70%)}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+.ui{position:fixed;inset:0;pointer-events:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;gap:16px 24px;
+  padding-top:max(22px,env(safe-area-inset-top,0px));padding-bottom:max(22px,env(safe-area-inset-bottom,0px));
+  padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.ui>*{pointer-events:auto;min-width:0}
+.brand h1{margin:0;font-size:clamp(30px,4.2vw,52px);line-height:1;letter-spacing:-.035em;font-weight:800}
+.brand h1 span{color:var(--red)}
+.brand p{margin:8px 0 0;color:var(--mute);max-width:34ch}
+.tabs{justify-self:end;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;align-content:flex-start}
+.tab,.btn{font:500 13px var(--mono);color:var(--mute);background:var(--glass);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+.tab:hover,.btn:hover{color:var(--fg);border-color:var(--mute)}
+.tab[aria-selected=true]{color:#05060b;background:var(--fg);border-color:var(--fg)}
+.btn.main{color:#05060b;background:var(--fg);border-color:var(--fg);font:700 14px var(--display)}
+.btn kbd{font:500 11px var(--mono);opacity:.6;margin-left:8px}
+.tab:focus-visible,.btn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.score{grid-row:3;align-self:end;display:flex;flex-direction:column;gap:6px}
+.score .lbl{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.score .big{font-size:clamp(84px,14vw,170px);line-height:.85;font-weight:800;letter-spacing:-.06em;color:var(--red);font-variant-numeric:tabular-nums;text-shadow:0 0 60px rgba(255,77,94,.45)}
+.score.clean .big{color:var(--green);text-shadow:0 0 60px rgba(61,220,151,.4)}
+.score .sub{color:var(--mute)} .score .sub b{color:var(--fg);font-weight:500}
+.mini{display:flex;gap:22px;margin-top:8px;font:500 12px var(--mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase;flex-wrap:wrap}
+.mini b{display:block;font:700 28px var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.right{grid-row:3;grid-column:2;align-self:end;justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:14px;text-align:right}
+.legend{display:flex;flex-direction:column;gap:4px;font:400 12px var(--mono);color:var(--mute)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:8px}
+.detail{min-height:68px;max-width:340px;padding:12px 16px;background:var(--glass);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;font:400 12.5px/1.6 var(--mono);color:var(--mute);text-align:left}
+.detail b{color:var(--fg);font-weight:500}
+.v-UNPATCHED{color:var(--red)}.v-PATCHED{color:var(--green)}.v-AMBIGUOUS{color:var(--amber)}.v-NO_MATCH{color:var(--gray)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.patch{position:fixed;top:50%;left:max(24px,env(safe-area-inset-left,0px));transform:translate(-120%,-50%);transition:transform .35s;width:min(460px,calc(100vw - 48px));max-height:70vh;background:rgba(8,10,18,.88);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;pointer-events:auto}
+.patch.open{transform:translate(0,-50%)}
+.patch .cap{padding:12px 16px;border-bottom:1px solid var(--line);font:500 12px var(--mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;gap:10px}
+.patch .cap b{color:var(--fg);font-weight:500;text-transform:none;letter-spacing:0}
+pre.diff{margin:0;padding:10px 0;overflow:auto;font:400 12px/1.65 var(--mono)}
+.ln{display:block;padding:0 16px 0 38px;position:relative;white-space:pre;min-width:max-content}
+.ln::before{position:absolute;left:16px}
+.ln.d{background:rgba(255,77,94,.15);color:#ffc9cf}.ln.d::before{content:"−";color:var(--red)}
+.ln.a{background:rgba(61,220,151,.15);color:#c4f5de}.ln.a::before{content:"+";color:var(--green)}
+.ln.c{color:#7d8599}.ln.gap{color:var(--mute);font-style:italic}
+.tip{position:fixed;pointer-events:none;font:500 12px var(--mono);background:rgba(8,10,18,.9);border:1px solid var(--line);border-radius:8px;padding:6px 10px;white-space:nowrap;transform:translate(14px,-130%);opacity:0;transition:opacity .1s;z-index:5}
+@media(max-width:760px){
+  .ui{grid-template-columns:1fr;gap:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .tabs{justify-self:start;grid-row:2;justify-content:flex-start;align-self:start}
+  .right{grid-row:4;grid-column:1;align-items:stretch;text-align:left}
+  .legend{flex-direction:row;flex-wrap:wrap;gap:4px 14px}.legend i{margin:0 6px 0 0}
+  .actions{justify-content:flex-start}
+  .score{grid-row:3}.score .big{font-size:84px}
+  .ui{grid-template-rows:auto auto 1fr auto auto}
+  .score{align-self:end}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<canvas id="cv"></canvas>
+<div class="ui">
+  <div class="brand"><h1>patch<span>gap</span></h1><p>Every release is a star. The red ones never got the fix.</p></div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="score" id="score">
+    <span class="lbl">Still vulnerable</span>
+    <span class="big" id="bigun">0</span>
+    <span class="sub" id="subun"></span>
+    <div class="mini">
+      <span><b class="v-PATCHED" id="np">0</b>patched</span>
+      <span><b class="v-AMBIGUOUS" id="na">0</b>ambiguous</span>
+      <span><b class="v-NO_MATCH" id="nn">0</b>no match</span>
+    </div>
+  </div>
+  <div class="right">
+    <div class="detail" id="detail">Hover a star. The core is the patch, the rim is the newest release.</div>
+    <div class="legend"><span>unpatched<i style="background:var(--red)"></i></span><span>patched<i style="background:var(--green)"></i></span><span>ambiguous<i style="background:var(--amber)"></i></span><span>no match<i style="background:var(--gray)"></i></span><span>solid core = exact · ring = fuzzy</span></div>
+    <div class="actions"><button class="btn" id="pbtn">The patch <kbd>P</kbd></button><button class="btn main" id="go">Run scan <kbd>Space</kbd></button></div>
+  </div>
+</div>
+<aside class="patch" id="patch"><div class="cap"><span>The patch</span><b id="pname"></b></div><pre class="diff" id="diff"></pre></aside>
+<div class="tip" id="tip"></div>
+
+<script>
+const DATA=[{"id": "ecdsa", "name": "ECDSA", "advisory": "GHSA-4h98-2769-gh6h", "title": "Removes the 64-byte signature branch", "rows": [{"v": "3.0.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.59, "old": 0.0, "new": 0.0}, {"v": "3.0.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.59, "old": 0.0, "new": 0.0}, {"v": "3.0.2", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.59, "old": 0.0, "new": 0.0}, {"v": "3.1.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.59, "old": 0.0, "new": 0.0}, {"v": "3.2.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.59, "old": 0.0, "new": 0.0}, {"v": "3.3.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.59, "old": 0.0, "new": 0.0}, {"v": "3.4.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.67, "old": 0.0, "new": 0.0}, {"v": "3.4.1", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.67, "old": 0.0, "new": 0.0}, {"v": "3.4.2", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.67, "old": 0.0, "new": 0.0}, {"v": "4.0.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.67, "old": 0.0, "new": 0.0}, {"v": "4.1.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.62, "old": 0.29, "new": 0.0}, {"v": "4.2.0", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.79, "old": 1.0, "new": 0.0}, {"v": "4.3.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.2", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.3", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.4.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.4.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.4.2", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.5.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.6.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.7.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.7.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.7.2", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.7.3", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.8.0", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.8.1", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.8.2", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.8.3", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.0", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.1", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.2", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.3", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.4", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.5", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.6", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "5.0.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.91, "old": 0.0, "new": 0.0}, {"v": "5.0.1", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.91, "old": 0.0, "new": 0.0}, {"v": "5.0.2", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.91, "old": 0.0, "new": 0.0}, {"v": "5.1.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.85, "old": 0.0, "new": 0.0}, {"v": "5.2.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.85, "old": 0.0, "new": 0.0}, {"v": "5.3.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.85, "old": 0.0, "new": 0.0}, {"v": "5.4.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.85, "old": 0.0, "new": 0.0}, {"v": "5.5.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.68, "old": 0.0, "new": 0.0}, {"v": "5.6.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.68, "old": 0.0, "new": 0.0}, {"v": "5.6.1", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.68, "old": 0.0, "new": 0.0}, {"v": "5.7.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.68, "old": 0.0, "new": 0.0}], "summary": "scanned 47 files (24 settled by exact match): 13 UNPATCHED, 1 AMBIGUOUS, 27 PATCHED, 6 NO_MATCH", "diff": [["c", "    function tryRecover(bytes32 hash, bytes memory signature) internal pure returns (address, RecoverError) {"], ["d", "        // Check the signature length"], ["d", "        // - case 65: r,s,v signature (standard)"], ["d", "        // - case 64: r,vs signature (cf https://eips.ethereum.org/EIPS/eip-2098) _Available since v4.1._"], ["c", "        if (signature.length == 65) {"], ["c", "            bytes32 r;"], ["gap", "9 unchanged lines"], ["c", "            }"], ["c", "            return tryRecover(hash, v, r, s);"], ["d", "        } else if (signature.length == 64) {"], ["d", "            bytes32 r;"], ["d", "            bytes32 vs;"], ["d", "            // ecrecover takes the signature parameters, and the only way to get them"], ["d", "            // currently is to use assembly."], ["d", "            /// @solidity memory-safe-assembly"], ["d", "            assembly {"], ["d", "                r := mload(add(signature, 0x20))"], ["d", "                vs := mload(add(signature, 0x40))"], ["d", "            }"], ["d", "            return tryRecover(hash, r, vs);"], ["c", "        } else {"], ["c", "            return (address(0), RecoverError.InvalidSignatureLength);"], ["c", "        }"], ["c", "    }"]]}, {"id": "erc2771", "name": "ERC2771Context", "advisory": "OpenZeppelin", "title": "Adds a calldata length check (>= 20)", "rows": [{"v": "4.0.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.1.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.2.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.2", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.3", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.4.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.4.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.4.2", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.5.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.6.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.7.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.7.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.7.2", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.7.3", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.8.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.8.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.8.2", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.8.3", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.9.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.9.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.9.2", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.9.3", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.4", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.39, "old": 0.0, "new": 0.06}, {"v": "4.9.5", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.39, "old": 0.0, "new": 0.06}, {"v": "4.9.6", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.39, "old": 0.0, "new": 0.06}, {"v": "5.0.0", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "5.0.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.39, "old": 0.0, "new": 0.06}, {"v": "5.0.2", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.39, "old": 0.0, "new": 0.06}, {"v": "5.1.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.39, "old": 0.0, "new": 0.06}, {"v": "5.2.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.39, "old": 0.0, "new": 0.06}, {"v": "5.3.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.39, "old": 0.0, "new": 0.06}, {"v": "5.4.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.34, "old": 0.25, "new": 0.0}, {"v": "5.5.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.34, "old": 0.25, "new": 0.0}, {"v": "5.6.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.34, "old": 0.25, "new": 0.0}, {"v": "5.6.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.34, "old": 0.25, "new": 0.0}, {"v": "5.7.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.34, "old": 0.25, "new": 0.0}], "summary": "scanned 38 files (25 settled by exact match): 23 UNPATCHED, 0 AMBIGUOUS, 2 PATCHED, 13 NO_MATCH", "diff": [["c", "    function _msgSender() internal view virtual override returns (address sender) {"], ["d", "        if (isTrustedForwarder(msg.sender)) {"], ["a", "        if (isTrustedForwarder(msg.sender) && msg.data.length >= 20) {"], ["c", "            // The assembly code is more direct than the Solidity version using `abi.decode`."], ["c", "            /// @solidity memory-safe-assembly"], ["gap", "7 unchanged lines"], ["c", ""], ["c", "    function _msgData() internal view virtual override returns (bytes calldata) {"], ["d", "        if (isTrustedForwarder(msg.sender)) {"], ["a", "        if (isTrustedForwarder(msg.sender) && msg.data.length >= 20) {"], ["c", "            return msg.data[:msg.data.length - 20];"], ["c", "        } else {"], ["c", "            return super._msgData();"], ["c", "        }"], ["c", "    }"]]}, {"id": "merkle", "name": "MerkleProof", "advisory": "OpenZeppelin", "title": "Adds a proof-length check", "rows": [{"v": "3.0.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "3.0.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "3.0.2", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "3.1.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "3.2.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "3.3.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "3.4.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "3.4.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "3.4.2", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "4.0.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "4.1.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "4.2.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "4.3.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "4.3.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "4.3.2", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "4.3.3", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.11, "old": 0.0, "new": 0.0}, {"v": "4.4.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.12, "old": 0.0, "new": 0.0}, {"v": "4.4.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.12, "old": 0.0, "new": 0.0}, {"v": "4.4.2", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.12, "old": 0.0, "new": 0.0}, {"v": "4.5.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.14, "old": 0.0, "new": 0.0}, {"v": "4.6.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.14, "old": 0.0, "new": 0.0}, {"v": "4.7.0", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.58, "new": 0.0}, {"v": "4.7.1", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.58, "new": 0.0}, {"v": "4.7.2", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.58, "new": 0.0}, {"v": "4.7.3", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.58, "new": 0.0}, {"v": "4.8.0", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.58, "new": 0.0}, {"v": "4.8.1", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.58, "new": 0.0}, {"v": "4.8.2", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.58, "new": 0.0}, {"v": "4.8.3", "verdict": "UNPATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.58, "new": 0.0}, {"v": "4.9.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.9.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.9.2", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.3", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.4", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.5", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.6", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "5.0.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.98, "old": 0.0, "new": 0.71}, {"v": "5.0.1", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.98, "old": 0.0, "new": 0.71}, {"v": "5.0.2", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.98, "old": 0.0, "new": 0.71}, {"v": "5.1.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.98, "old": 0.17, "new": 0.41}, {"v": "5.2.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.98, "old": 0.17, "new": 0.41}, {"v": "5.3.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.98, "old": 0.17, "new": 0.41}, {"v": "5.4.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.98, "old": 0.17, "new": 0.41}, {"v": "5.5.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.98, "old": 0.17, "new": 0.41}, {"v": "5.6.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.93, "old": 0.17, "new": 0.12}, {"v": "5.6.1", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.93, "old": 0.17, "new": 0.12}, {"v": "5.7.0", "verdict": "AMBIGUOUS", "tier": "fuzzy", "ctx": 0.93, "old": 0.17, "new": 0.12}], "summary": "scanned 47 files (7 settled by exact match): 10 UNPATCHED, 11 AMBIGUOUS, 5 PATCHED, 21 NO_MATCH", "diff": [["c", "function processMultiProof("], ["c", "        bytes32[] memory proof,"], ["gap", "6 unchanged lines"], ["c", "        // the merkle tree."], ["c", "        uint256 leavesLen = leaves.length;"], ["a", "        uint256 proofLen = proof.length;"], ["c", "        uint256 totalHashes = proofFlags.length;"], ["c", ""], ["c", "        // Check proof validity."], ["d", "        require(leavesLen + proof.length - 1 == totalHashes, \"MerkleProof: invalid multiproof\");"], ["a", "        require(leavesLen + proofLen - 1 == totalHashes, \"MerkleProof: invalid multiproof\");"], ["c", ""], ["c", "        // The xxxPos values are \"pointers\" to the next value to consume in each array. All accesses are done using"], ["gap", "17 unchanged lines"], ["c", ""], ["c", "        if (totalHashes > 0) {"], ["a", "            require(proofPos == proofLen, \"MerkleProof: invalid multiproof\");"], ["c", "            unchecked {"], ["c", "                return hashes[totalHashes - 1];"], ["gap", "5 unchanged lines"], ["c", "        }"], ["c", "    }"]]}, {"id": "uups", "name": "UUPSUpgradeable", "advisory": "OpenZeppelin", "title": "Adds the onlyProxy guard to upgradeTo", "rows": [{"v": "4.1.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.2.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.0", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.1", "verdict": "UNPATCHED", "tier": "exact", "ctx": 1.0, "old": 1.0, "new": 0.0}, {"v": "4.3.2", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.3.3", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.4.0", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.4.1", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.4.2", "verdict": "PATCHED", "tier": "exact", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.5.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.6.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.7.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.7.1", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.7.2", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.7.3", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.8.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.8.1", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.8.2", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.8.3", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 1.0, "old": 0.0, "new": 1.0}, {"v": "4.9.0", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.0, "new": 0.87}, {"v": "4.9.1", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.0, "new": 0.87}, {"v": "4.9.2", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.0, "new": 0.87}, {"v": "4.9.3", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.0, "new": 0.87}, {"v": "4.9.4", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.0, "new": 0.87}, {"v": "4.9.5", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.0, "new": 0.87}, {"v": "4.9.6", "verdict": "PATCHED", "tier": "fuzzy", "ctx": 0.82, "old": 0.0, "new": 0.87}, {"v": "5.0.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.0.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.0.2", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.1.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.2.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.3.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.4.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.5.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.6.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.6.1", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}, {"v": "5.7.0", "verdict": "NO_MATCH", "tier": "fuzzy", "ctx": 0.54, "old": 0.0, "new": 0.35}], "summary": "scanned 37 files (9 settled by exact match): 4 UNPATCHED, 0 AMBIGUOUS, 22 PATCHED, 11 NO_MATCH", "diff": [["d", "    function upgradeTo(address newImplementation) external virtual {"], ["a", "    address private immutable __self = address(this);"], ["a", ""], ["a", "    /**"], ["a", "     * @dev Check that the execution is being performed through a delegatecall call and that the execution context is"], ["a", "     * a proxy contract with an implementation (as defined in ERC1967) pointing to self. This should only be the case"], ["a", "     * for UUPS and transparent proxies that are using the current contract as their implementation. Execution of a"], ["a", "     * function through ERC1167 minimal proxies (clones) would not normally pass this test, but is not guaranteed to"], ["a", "     * fail."], ["a", "     */"], ["a", "    modifier onlyProxy() {"], ["a", "        require(address(this) != __self, \"Function must be called through delegatecall\");"], ["a", "        require(_getImplementation() == __self, \"Function must be called through active proxy\");"], ["a", "        _;"], ["a", "    }"], ["a", ""], ["a", "    /**"], ["a", "     * @dev Upgrade the implementation of the proxy to `newImplementation`."], ["a", "     *"], ["a", "     * Calls {_authorizeUpgrade}."], ["a", "     *"], ["a", "     * Emits an {Upgraded} event."], ["a", "     */"], ["a", "    function upgradeTo(address newImplementation) external virtual onlyProxy {"], ["c", "        _authorizeUpgrade(newImplementation);"], ["d", "        _upgradeToAndCallSecure(newImplementation, bytes(\"\"), false);"], ["a", "        _upgradeToAndCallSecure(newImplementation, new bytes(0), false);"], ["c", "    }"], ["c", ""], ["gap", "6 unchanged lines"], ["c", "     * Emits an {Upgraded} event."], ["c", "     */"], ["d", "    function upgradeToAndCall(address newImplementation, bytes memory data) external payable virtual {"], ["a", "    function upgradeToAndCall(address newImplementation, bytes memory data) external payable virtual onlyProxy {"], ["c", "        _authorizeUpgrade(newImplementation);"], ["c", "        _upgradeToAndCallSecure(newImplementation, data, true);"], ["c", "    }"]]}];
+const $=id=>document.getElementById(id);
+const cv=$('cv'),ctx=cv.getContext('2d');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const PHI=(1+Math.sqrt(5))/2,GA=Math.PI*(3-Math.sqrt(5)),B=Math.log(PHI)/(Math.PI/2),TILT=0.8;
+const COL={UNPATCHED:[255,77,94],PATCHED:[61,220,151],AMBIGUOUS:[255,181,71],NO_MATCH:[141,149,173],CORE:[255,233,184],DUST:[170,190,255]};
+const SIZE={UNPATCHED:30,PATCHED:22,AMBIGUOUS:26,NO_MATCH:15};
+const sprites={};
+for(const k in COL){const c=document.createElement('canvas');c.width=c.height=128;const g=c.getContext('2d');
+  const r=g.createRadialGradient(64,64,0,64,64,64),[a,b,d]=COL[k];
+  r.addColorStop(0,`rgba(${a},${b},${d},1)`);r.addColorStop(.12,`rgba(${a},${b},${d},.75)`);r.addColorStop(.38,`rgba(${a},${b},${d},.18)`);r.addColorStop(1,`rgba(${a},${b},${d},0)`);
+  g.fillStyle=r;g.fillRect(0,0,128,128);sprites[k]=c}
+
+let W,H,dpr,cx,cy,R,cur=0,sel=-1,hov=-1,stars=[],lit=[],counts,scanStart=0,scanning=false,mouse={x:-9,y:-9};
+const DUR=4200;
+const rnd=(()=>{let s=7;return()=>(s=(s*16807)%2147483647)/2147483647})();
+let dust=[];
+function makeDust(){dust=[];for(let i=0;i<1100;i++){
+  const u=rnd(),bulge=rnd()<.22;let r=bulge?Math.pow(u,1.8)*.28:Math.pow(u,.7)*1.45;
+  let a;if(bulge)a=rnd()*6.283;else{const arm=Math.floor(rnd()*2);a=Math.log(Math.max(r,.02)/.03)/B+arm*Math.PI+(rnd()-.5)*(.9+r*.6)}
+  dust.push({r,a,s:.4+rnd()*1.3,t:rnd()*6.283,h:rnd()})}}
+makeDust();
+
+function resize(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+  const narrow=W<=760;cx=W/2;cy=narrow?H*.38:H*.5;R=narrow?Math.min(W*.46,H*.3):Math.min(W*.36,H*.42)}
+addEventListener('resize',resize);resize();
+
+function buildStars(){const rows=DATA[cur].rows,n=rows.length;
+  stars=rows.map((r,i)=>({...r,i,rr:Math.sqrt((i+1.3)/(n+.3)),a0:i*GA,x:0,y:0}));
+  lit=new Array(n).fill(0);counts={UNPATCHED:0,PATCHED:0,AMBIGUOUS:0,NO_MATCH:0};}
+
+function setNums(done){const n=stars.length;
+  $('bigun').textContent=counts.UNPATCHED;$('np').textContent=counts.PATCHED;$('na').textContent=counts.AMBIGUOUS;$('nn').textContent=counts.NO_MATCH;
+  $('score').classList.toggle('clean',done&&counts.UNPATCHED===0);
+  $('subun').innerHTML='of <b>'+n+'</b> scanned releases still carry the old code';}
+
+function renderDiff(){const s=DATA[cur],pre=$('diff');pre.innerHTML='';$('pname').textContent=s.title;
+  s.diff.forEach(([k,t])=>{const d=document.createElement('span');d.className='ln '+k;d.textContent=k==='gap'?'… '+t:(t||' ');pre.appendChild(d)})}
+function tabs(){const T=$('tabs');T.innerHTML='';DATA.forEach((s,i)=>{const b=document.createElement('button');b.className='tab';b.role='tab';b.textContent=s.name;b.setAttribute('aria-selected',i===cur);b.onclick=()=>{cur=i;load()};T.appendChild(b)})}
+function load(){sel=-1;hov=-1;buildStars();tabs();renderDiff();
+  $('detail').innerHTML='Hover a star. The core is the patch, the rim is the newest release.';
+  if(reduce){scanning=false;stars.forEach((s,i)=>{lit[i]=-9999;counts[s.verdict]++});setNums(true)}else run();}
+function run(){stars.forEach((s,i)=>lit[i]=0);counts={UNPATCHED:0,PATCHED:0,AMBIGUOUS:0,NO_MATCH:0};setNums(false);scanStart=performance.now();scanning=true;}
+function info(i){const s=stars[i],t=s.tier==='exact'?'exact match':'fuzzy match, confirm by hand';
+  return `<b>${DATA[cur].name} v${s.v}</b><br><span class="v-${s.verdict}"><b>${s.verdict.replace('_',' ')}</b></span> · ${t}<br>old code ${s.old.toFixed(2)} · fixed code ${s.new.toFixed(2)} · context ${s.ctx.toFixed(2)}`}
+
+function frame(now){
+  ctx.clearRect(0,0,W,H);
+  const rot=now*0.000045;
+  let p=1;if(scanning){p=Math.min(1,(now-scanStart)/DUR)}
+  const waveR=scanning?Math.sqrt(p)*1.04:2;
+  const P=(r,a)=>[cx+Math.cos(a)*r*R,cy+Math.sin(a)*r*R*TILT];
+  ctx.globalCompositeOperation='lighter';
+  // dust with differential rotation
+  for(const d of dust){const a=d.a+rot*(0.6/(0.25+d.r))*1.0;const [x,y]=P(d.r,a);if(x<-5||y<-5||x>W+5||y>H+5)continue;
+    const al=(.12+.38*Math.abs(Math.sin(now*0.0007+d.t)))*(1-Math.min(.7,d.r*.4));
+    ctx.globalAlpha=al;const z=d.s*7;ctx.drawImage(sprites.DUST,x-z/2,y-z/2,z,z)}
+  ctx.globalAlpha=1;
+  // golden spiral guide
+  ctx.globalCompositeOperation='source-over';ctx.beginPath();
+  for(let th=0;;th+=.08){const r=.03*Math.exp(B*th);if(r>1.35)break;const [x,y]=P(r,th+rot);th?ctx.lineTo(x,y):ctx.moveTo(x,y)}
+  ctx.strokeStyle='rgba(255,233,184,.14)';ctx.lineWidth=1;ctx.stroke();
+  // wave ring
+  if(scanning){ctx.beginPath();ctx.ellipse(cx,cy,waveR*R,waveR*R*TILT,0,0,6.283);ctx.strokeStyle=`rgba(255,233,184,${.55*(1-p)})`;ctx.lineWidth=1.5;ctx.stroke()}
+  ctx.globalCompositeOperation='lighter';
+  // core
+  const pulse=1+.06*Math.sin(now*.002),cs=(scanning?150:110)*pulse;ctx.globalAlpha=.9;ctx.drawImage(sprites.CORE,cx-cs/2,cy-cs/2,cs,cs);ctx.globalAlpha=1;
+  // stars
+  let changed=false;
+  for(const s of stars){
+    const [x,y]=P(s.rr,s.a0+rot);s.x=x;s.y=y;
+    if(!lit[s.i]&&s.rr<=waveR){lit[s.i]=now||1;counts[s.verdict]++;changed=true}
+    if(!lit[s.i]){ctx.globalAlpha=.3;const z=9;ctx.drawImage(sprites.NO_MATCH,x-z/2,y-z/2,z,z);continue}
+    const age=lit[s.i]<0?9999:now-lit[s.i];
+    let z=SIZE[s.verdict]*(1+2.4*Math.exp(-age/380));
+    if(s.verdict==='UNPATCHED')z*=1+.16*Math.sin(now/520+s.i);
+    ctx.globalAlpha=s.verdict==='NO_MATCH'?.75:1;ctx.drawImage(sprites[s.verdict],x-z*1.6,y-z*1.6,z*3.2,z*3.2);
+    ctx.globalAlpha=1;
+    if(s.tier==='exact'){ctx.fillStyle='rgba(255,255,255,.95)';ctx.beginPath();ctx.arc(x,y,2.4,0,6.283);ctx.fill()}
+    else{ctx.strokeStyle='rgba(255,255,255,.8)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(x,y,4.2,0,6.283);ctx.stroke()}
+  }
+  ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;
+  // selection rings and labels
+  for(const i of [sel,hov]){if(i<0)continue;const s=stars[i];if(!lit[i])continue;
+    ctx.strokeStyle='rgba(255,255,255,.9)';ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(s.x,s.y,13,0,6.283);ctx.stroke();
+    ctx.fillStyle='#eceffa';ctx.font='500 12px JetBrains Mono, monospace';ctx.fillText('v'+s.v,s.x+18,s.y+4)}
+  // core label
+  ctx.fillStyle='rgba(255,233,184,.8)';ctx.font='500 11px JetBrains Mono, monospace';ctx.textAlign='center';ctx.fillText('PATCH',cx,cy+(narrowLbl()));ctx.textAlign='start';
+  if(changed||scanning){const done=scanning&&p>=1;if(done)scanning=false;setNums(!scanning&&lit.every(Boolean))}
+  // hover
+  let best=-1,bd=22;stars.forEach(s=>{if(!lit[s.i])return;const d=Math.hypot(s.x-mouse.x,s.y-mouse.y);if(d<bd){bd=d;best=s.i}});
+  if(best!==hov){hov=best;const t=$('tip');if(hov>=0){const s=stars[hov];t.innerHTML=`${DATA[cur].name} v${s.v} · <span class="v-${s.verdict}">${s.verdict.replace('_',' ')}</span>`;t.style.opacity=1;cv.style.cursor='pointer'}else{t.style.opacity=0;cv.style.cursor='default'}}
+  if(hov>=0){$('tip').style.left=stars[hov].x+'px';$('tip').style.top=stars[hov].y+'px'}
+  requestAnimationFrame(frame)}
+function narrowLbl(){return 40}
+cv.addEventListener('pointermove',e=>{mouse.x=e.clientX;mouse.y=e.clientY});
+cv.addEventListener('pointerleave',()=>{mouse.x=mouse.y=-99});
+cv.addEventListener('click',e=>{mouse.x=e.clientX;mouse.y=e.clientY;
+  let best=-1,bd=26;stars.forEach(s=>{if(!lit[s.i])return;const d=Math.hypot(s.x-e.clientX,s.y-e.clientY);if(d<bd){bd=d;best=s.i}});
+  if(best>=0){sel=best;$('detail').innerHTML=info(best)}});
+$('go').onclick=run;
+$('pbtn').onclick=()=>$('patch').classList.toggle('open');
+addEventListener('keydown',e=>{
+  if(e.code==='Space'&&e.target.tagName!=='BUTTON'){e.preventDefault();run()}
+  if(e.key==='p'||e.key==='P')$('patch').classList.toggle('open');
+  if(e.key>='1'&&e.key<='4'){cur=+e.key-1;load()}});
+load();requestAnimationFrame(frame);
+</script>
