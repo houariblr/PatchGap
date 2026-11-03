@@ -1,0 +1,6 @@
+target/
+corpus/
+report.txt
+bench/cases/
+__pycache__/
+bench/data/neg/solmate_ERC20.sol

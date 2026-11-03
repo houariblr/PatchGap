@@ -1,0 +1,707 @@
+patch	split	id	category	label	note
+ecdsa	dev	real__v3.0.0	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v3.0.1	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v3.0.2	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v3.1.0	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v3.2.0	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v3.3.0	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v3.4.0	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v3.4.1	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v3.4.2	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v4.0.0	real_tag	NOT_AFFECTED	
+ecdsa	dev	real__v4.1.0	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.2.0	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.3.0	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.3.1	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.3.2	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.3.3	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.4.0	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.4.1	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.4.2	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.5.0	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.6.0	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.7.0	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.7.1	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.7.2	real_tag	UNPATCHED	
+ecdsa	dev	real__v4.7.3	real_tag	PATCHED	
+ecdsa	dev	real__v4.8.0	real_tag	PATCHED	
+ecdsa	dev	real__v4.8.1	real_tag	PATCHED	
+ecdsa	dev	real__v4.8.2	real_tag	PATCHED	
+ecdsa	dev	real__v4.8.3	real_tag	PATCHED	
+ecdsa	dev	real__v4.9.0	real_tag	PATCHED	
+ecdsa	dev	real__v4.9.1	real_tag	PATCHED	
+ecdsa	dev	real__v4.9.2	real_tag	PATCHED	
+ecdsa	dev	real__v4.9.3	real_tag	PATCHED	
+ecdsa	dev	real__v4.9.4	real_tag	PATCHED	
+ecdsa	dev	real__v4.9.5	real_tag	PATCHED	
+ecdsa	dev	real__v4.9.6	real_tag	PATCHED	
+ecdsa	dev	real__v5.0.0	real_tag	PATCHED	
+ecdsa	dev	real__v5.0.1	real_tag	PATCHED	
+ecdsa	dev	real__v5.0.2	real_tag	PATCHED	
+ecdsa	dev	real__v5.1.0	real_tag	PATCHED	
+ecdsa	dev	real__v5.2.0	real_tag	PATCHED	
+ecdsa	dev	real__v5.3.0	real_tag	PATCHED	
+ecdsa	dev	real__v5.4.0	real_tag	PATCHED	
+ecdsa	dev	real__v5.5.0	real_tag	PATCHED	
+ecdsa	dev	real__v5.6.0	real_tag	PATCHED	
+ecdsa	dev	real__v5.6.1	real_tag	PATCHED	
+ecdsa	dev	real__v5.7.0	real_tag	PATCHED	
+ecdsa	dev	rename__v4.3.0	rename	UNPATCHED	
+ecdsa	dev	format_compact__v4.3.0	format	UNPATCHED	
+ecdsa	dev	format_noisy__v4.3.0	format	UNPATCHED	
+ecdsa	dev	indep_probe__v4.3.0	independent	UNPATCHED	
+ecdsa	dev	indep_visibility__v4.3.0	independent	UNPATCHED	
+ecdsa	dev	indep_text__v4.3.0	independent	UNPATCHED	
+ecdsa	dev	indep_swap__v4.3.0	independent	UNPATCHED	
+ecdsa	dev	combo__v4.3.0	independent	UNPATCHED	probe+rename+layout
+ecdsa	dev	merged_S__v4.3.0	merged_S	UNPATCHED	after
+ecdsa	dev	merged_M__v4.3.0	merged_M	UNPATCHED	between
+ecdsa	dev	merged_L__v4.3.0	merged_L	UNPATCHED	after
+ecdsa	dev	rename__v4.5.0	rename	UNPATCHED	
+ecdsa	dev	format_compact__v4.5.0	format	UNPATCHED	
+ecdsa	dev	format_noisy__v4.5.0	format	UNPATCHED	
+ecdsa	dev	indep_probe__v4.5.0	independent	UNPATCHED	
+ecdsa	dev	indep_visibility__v4.5.0	independent	UNPATCHED	
+ecdsa	dev	indep_text__v4.5.0	independent	UNPATCHED	
+ecdsa	dev	indep_swap__v4.5.0	independent	UNPATCHED	
+ecdsa	dev	combo__v4.5.0	independent	UNPATCHED	probe+rename+layout
+ecdsa	dev	merged_S__v4.5.0	merged_S	UNPATCHED	before
+ecdsa	dev	merged_M__v4.5.0	merged_M	UNPATCHED	after
+ecdsa	dev	merged_L__v4.5.0	merged_L	UNPATCHED	after
+ecdsa	dev	rename__v4.7.0	rename	UNPATCHED	
+ecdsa	dev	format_compact__v4.7.0	format	UNPATCHED	
+ecdsa	dev	format_noisy__v4.7.0	format	UNPATCHED	
+ecdsa	dev	indep_probe__v4.7.0	independent	UNPATCHED	
+ecdsa	dev	indep_visibility__v4.7.0	independent	UNPATCHED	
+ecdsa	dev	indep_text__v4.7.0	independent	UNPATCHED	
+ecdsa	dev	indep_swap__v4.7.0	independent	UNPATCHED	
+ecdsa	dev	combo__v4.7.0	independent	UNPATCHED	probe+rename+layout
+ecdsa	dev	merged_S__v4.7.0	merged_S	UNPATCHED	after
+ecdsa	dev	merged_M__v4.7.0	merged_M	UNPATCHED	after
+ecdsa	dev	merged_L__v4.7.0	merged_L	UNPATCHED	after
+ecdsa	dev	rename__v4.7.2	rename	UNPATCHED	
+ecdsa	dev	format_compact__v4.7.2	format	UNPATCHED	
+ecdsa	dev	format_noisy__v4.7.2	format	UNPATCHED	
+ecdsa	dev	indep_probe__v4.7.2	independent	UNPATCHED	
+ecdsa	dev	indep_visibility__v4.7.2	independent	UNPATCHED	
+ecdsa	dev	indep_text__v4.7.2	independent	UNPATCHED	
+ecdsa	dev	indep_swap__v4.7.2	independent	UNPATCHED	
+ecdsa	dev	combo__v4.7.2	independent	UNPATCHED	probe+rename+layout
+ecdsa	dev	merged_S__v4.7.2	merged_S	UNPATCHED	before
+ecdsa	dev	merged_M__v4.7.2	merged_M	UNPATCHED	after
+ecdsa	dev	merged_L__v4.7.2	merged_L	UNPATCHED	before
+ecdsa	dev	rename__v4.7.3	rename	PATCHED	
+ecdsa	dev	format_compact__v4.7.3	format	PATCHED	
+ecdsa	dev	format_noisy__v4.7.3	format	PATCHED	
+ecdsa	dev	indep_probe__v4.7.3	independent	PATCHED	
+ecdsa	dev	indep_visibility__v4.7.3	independent	PATCHED	
+ecdsa	dev	indep_text__v4.7.3	independent	PATCHED	
+ecdsa	dev	indep_swap__v4.7.3	independent	PATCHED	
+ecdsa	dev	combo__v4.7.3	independent	PATCHED	probe+rename+layout
+ecdsa	dev	merged_S__v4.7.3	merged_S	PATCHED	before
+ecdsa	dev	merged_M__v4.7.3	merged_M	PATCHED	before
+ecdsa	dev	merged_L__v4.7.3	merged_L	PATCHED	before
+ecdsa	dev	rename__v4.9.6	rename	PATCHED	
+ecdsa	dev	format_compact__v4.9.6	format	PATCHED	
+ecdsa	dev	format_noisy__v4.9.6	format	PATCHED	
+ecdsa	dev	indep_probe__v4.9.6	independent	PATCHED	
+ecdsa	dev	indep_visibility__v4.9.6	independent	PATCHED	
+ecdsa	dev	indep_text__v4.9.6	independent	PATCHED	
+ecdsa	dev	indep_swap__v4.9.6	independent	PATCHED	
+ecdsa	dev	combo__v4.9.6	independent	PATCHED	probe+rename+layout
+ecdsa	dev	merged_S__v4.9.6	merged_S	PATCHED	between
+ecdsa	dev	merged_M__v4.9.6	merged_M	PATCHED	after
+ecdsa	dev	merged_L__v4.9.6	merged_L	PATCHED	between
+ecdsa	dev	rename__v5.0.0	rename	PATCHED	
+ecdsa	dev	format_compact__v5.0.0	format	PATCHED	
+ecdsa	dev	format_noisy__v5.0.0	format	PATCHED	
+ecdsa	dev	indep_probe__v5.0.0	independent	PATCHED	
+ecdsa	dev	indep_visibility__v5.0.0	independent	PATCHED	
+ecdsa	dev	indep_text__v5.0.0	independent	PATCHED	
+ecdsa	dev	indep_swap__v5.0.0	independent	PATCHED	
+ecdsa	dev	combo__v5.0.0	independent	PATCHED	probe+rename+layout
+ecdsa	dev	merged_S__v5.0.0	merged_S	PATCHED	before
+ecdsa	dev	merged_M__v5.0.0	merged_M	PATCHED	before
+ecdsa	dev	merged_L__v5.0.0	merged_L	PATCHED	before
+ecdsa	dev	rename__v5.7.0	rename	PATCHED	
+ecdsa	dev	format_compact__v5.7.0	format	PATCHED	
+ecdsa	dev	format_noisy__v5.7.0	format	PATCHED	
+ecdsa	dev	indep_probe__v5.7.0	independent	PATCHED	
+ecdsa	dev	indep_visibility__v5.7.0	independent	PATCHED	
+ecdsa	dev	indep_text__v5.7.0	independent	PATCHED	
+ecdsa	dev	indep_swap__v5.7.0	independent	PATCHED	
+ecdsa	dev	combo__v5.7.0	independent	PATCHED	probe+rename+layout
+ecdsa	dev	merged_S__v5.7.0	merged_S	PATCHED	between
+ecdsa	dev	merged_M__v5.7.0	merged_M	PATCHED	before
+ecdsa	dev	merged_L__v5.7.0	merged_L	PATCHED	after
+ecdsa	dev	dual__v4.3.0_v4.7.3	dual_copy	UNPATCHED	unpatched+patched copies
+ecdsa	dev	dual__v4.3.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+ecdsa	dev	dual__v4.5.0_v4.7.3	dual_copy	UNPATCHED	unpatched+patched copies
+ecdsa	dev	dual__v4.5.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+ecdsa	dev	dual__v4.7.0_v4.7.3	dual_copy	UNPATCHED	unpatched+patched copies
+ecdsa	dev	dual__v4.7.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+ecdsa	dev	dual__v4.7.2_v4.7.3	dual_copy	UNPATCHED	unpatched+patched copies
+ecdsa	dev	dual__v4.7.2_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+ecdsa	dev	dual__v4.7.3_v4.9.6	dual_copy	PATCHED	two patched copies
+ecdsa	dev	dual__v4.9.6_v5.0.0	dual_copy	PATCHED	two patched copies
+ecdsa	dev	dual__v5.0.0_v5.7.0	dual_copy	PATCHED	two patched copies
+ecdsa	dev	neg__oz496_Context	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__oz496_EIP712	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__oz496_ERC20	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__oz496_MinimalForwarder	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__oz496_Multicall	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__oz496_SignatureChecker	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__oz496_Strings	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__oz510_ERC2771Forwarder	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__permit2_SignatureVerification	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__solady_ECDSA	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__solady_MerkleProofLib	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__solady_SignatureCheckerLib	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__solmate_ERC20	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	neg__solmate_MerkleProofLib	negative_similar	NO_MATCH	similar, unrelated
+ecdsa	dev	host_S00	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S01	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S02	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S03	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S04	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S05	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S06	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S07	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S08	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_S09	host_S	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M00	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M01	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M02	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M03	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M04	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M05	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M06	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M07	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M08	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_M09	host_M	NO_MATCH	unrelated real contract
+ecdsa	dev	host_L00	host_L	NO_MATCH	unrelated real contract
+ecdsa	dev	host_L01	host_L	NO_MATCH	unrelated real contract
+ecdsa	dev	host_L02	host_L	NO_MATCH	unrelated real contract
+ecdsa	dev	host_L03	host_L	NO_MATCH	unrelated real contract
+ecdsa	dev	host_L04	host_L	NO_MATCH	unrelated real contract
+ecdsa	dev	host_L05	host_L	NO_MATCH	unrelated real contract
+merkle	dev	real__v3.0.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v3.0.1	real_tag	NOT_AFFECTED	
+merkle	dev	real__v3.0.2	real_tag	NOT_AFFECTED	
+merkle	dev	real__v3.1.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v3.2.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v3.3.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v3.4.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v3.4.1	real_tag	NOT_AFFECTED	
+merkle	dev	real__v3.4.2	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.0.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.1.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.2.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.3.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.3.1	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.3.2	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.3.3	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.4.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.4.1	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.4.2	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.5.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.6.0	real_tag	NOT_AFFECTED	
+merkle	dev	real__v4.7.0	real_tag	UNPATCHED	
+merkle	dev	real__v4.7.1	real_tag	UNPATCHED	
+merkle	dev	real__v4.7.2	real_tag	UNPATCHED	
+merkle	dev	real__v4.7.3	real_tag	UNPATCHED	
+merkle	dev	real__v4.8.0	real_tag	UNPATCHED	
+merkle	dev	real__v4.8.1	real_tag	UNPATCHED	
+merkle	dev	real__v4.8.2	real_tag	UNPATCHED	
+merkle	dev	real__v4.8.3	real_tag	UNPATCHED	
+merkle	dev	real__v4.9.0	real_tag	UNPATCHED	
+merkle	dev	real__v4.9.1	real_tag	UNPATCHED	
+merkle	dev	real__v4.9.2	real_tag	PATCHED	
+merkle	dev	real__v4.9.3	real_tag	PATCHED	
+merkle	dev	real__v4.9.4	real_tag	PATCHED	
+merkle	dev	real__v4.9.5	real_tag	PATCHED	
+merkle	dev	real__v4.9.6	real_tag	PATCHED	
+merkle	dev	real__v5.0.0	real_tag	PATCHED	
+merkle	dev	real__v5.0.1	real_tag	PATCHED	
+merkle	dev	real__v5.0.2	real_tag	PATCHED	
+merkle	dev	real__v5.1.0	real_tag	PATCHED	
+merkle	dev	real__v5.2.0	real_tag	PATCHED	
+merkle	dev	real__v5.3.0	real_tag	PATCHED	
+merkle	dev	real__v5.4.0	real_tag	PATCHED	
+merkle	dev	real__v5.5.0	real_tag	PATCHED	
+merkle	dev	real__v5.6.0	real_tag	PATCHED	
+merkle	dev	real__v5.6.1	real_tag	PATCHED	
+merkle	dev	real__v5.7.0	real_tag	PATCHED	
+merkle	dev	rename__v4.7.0	rename	UNPATCHED	
+merkle	dev	format_compact__v4.7.0	format	UNPATCHED	
+merkle	dev	format_noisy__v4.7.0	format	UNPATCHED	
+merkle	dev	indep_probe__v4.7.0	independent	UNPATCHED	
+merkle	dev	indep_visibility__v4.7.0	independent	UNPATCHED	
+merkle	dev	indep_text__v4.7.0	independent	UNPATCHED	
+merkle	dev	indep_swap__v4.7.0	independent	UNPATCHED	
+merkle	dev	combo__v4.7.0	independent	UNPATCHED	probe+rename+layout
+merkle	dev	merged_S__v4.7.0	merged_S	UNPATCHED	before
+merkle	dev	merged_M__v4.7.0	merged_M	UNPATCHED	before
+merkle	dev	merged_L__v4.7.0	merged_L	UNPATCHED	before
+merkle	dev	rename__v4.8.0	rename	UNPATCHED	
+merkle	dev	format_compact__v4.8.0	format	UNPATCHED	
+merkle	dev	format_noisy__v4.8.0	format	UNPATCHED	
+merkle	dev	indep_probe__v4.8.0	independent	UNPATCHED	
+merkle	dev	indep_visibility__v4.8.0	independent	UNPATCHED	
+merkle	dev	indep_text__v4.8.0	independent	UNPATCHED	
+merkle	dev	indep_swap__v4.8.0	independent	UNPATCHED	
+merkle	dev	combo__v4.8.0	independent	UNPATCHED	probe+rename+layout
+merkle	dev	merged_S__v4.8.0	merged_S	UNPATCHED	after
+merkle	dev	merged_M__v4.8.0	merged_M	UNPATCHED	between
+merkle	dev	merged_L__v4.8.0	merged_L	UNPATCHED	between
+merkle	dev	rename__v4.9.0	rename	UNPATCHED	
+merkle	dev	format_compact__v4.9.0	format	UNPATCHED	
+merkle	dev	format_noisy__v4.9.0	format	UNPATCHED	
+merkle	dev	indep_probe__v4.9.0	independent	UNPATCHED	
+merkle	dev	indep_visibility__v4.9.0	independent	UNPATCHED	
+merkle	dev	indep_text__v4.9.0	independent	UNPATCHED	
+merkle	dev	indep_swap__v4.9.0	independent	UNPATCHED	
+merkle	dev	combo__v4.9.0	independent	UNPATCHED	probe+rename+layout
+merkle	dev	merged_S__v4.9.0	merged_S	UNPATCHED	between
+merkle	dev	merged_M__v4.9.0	merged_M	UNPATCHED	after
+merkle	dev	merged_L__v4.9.0	merged_L	UNPATCHED	after
+merkle	dev	rename__v4.9.1	rename	UNPATCHED	
+merkle	dev	format_compact__v4.9.1	format	UNPATCHED	
+merkle	dev	format_noisy__v4.9.1	format	UNPATCHED	
+merkle	dev	indep_probe__v4.9.1	independent	UNPATCHED	
+merkle	dev	indep_visibility__v4.9.1	independent	UNPATCHED	
+merkle	dev	indep_text__v4.9.1	independent	UNPATCHED	
+merkle	dev	indep_swap__v4.9.1	independent	UNPATCHED	
+merkle	dev	combo__v4.9.1	independent	UNPATCHED	probe+rename+layout
+merkle	dev	merged_S__v4.9.1	merged_S	UNPATCHED	between
+merkle	dev	merged_M__v4.9.1	merged_M	UNPATCHED	before
+merkle	dev	merged_L__v4.9.1	merged_L	UNPATCHED	after
+merkle	dev	rename__v4.9.2	rename	PATCHED	
+merkle	dev	format_compact__v4.9.2	format	PATCHED	
+merkle	dev	format_noisy__v4.9.2	format	PATCHED	
+merkle	dev	indep_probe__v4.9.2	independent	PATCHED	
+merkle	dev	indep_visibility__v4.9.2	independent	PATCHED	
+merkle	dev	indep_text__v4.9.2	independent	PATCHED	
+merkle	dev	indep_swap__v4.9.2	independent	PATCHED	
+merkle	dev	combo__v4.9.2	independent	PATCHED	probe+rename+layout
+merkle	dev	merged_S__v4.9.2	merged_S	PATCHED	between
+merkle	dev	merged_M__v4.9.2	merged_M	PATCHED	before
+merkle	dev	merged_L__v4.9.2	merged_L	PATCHED	between
+merkle	dev	rename__v4.9.6	rename	PATCHED	
+merkle	dev	format_compact__v4.9.6	format	PATCHED	
+merkle	dev	format_noisy__v4.9.6	format	PATCHED	
+merkle	dev	indep_probe__v4.9.6	independent	PATCHED	
+merkle	dev	indep_visibility__v4.9.6	independent	PATCHED	
+merkle	dev	indep_text__v4.9.6	independent	PATCHED	
+merkle	dev	indep_swap__v4.9.6	independent	PATCHED	
+merkle	dev	combo__v4.9.6	independent	PATCHED	probe+rename+layout
+merkle	dev	merged_S__v4.9.6	merged_S	PATCHED	between
+merkle	dev	merged_M__v4.9.6	merged_M	PATCHED	between
+merkle	dev	merged_L__v4.9.6	merged_L	PATCHED	after
+merkle	dev	rename__v5.0.0	rename	PATCHED	
+merkle	dev	format_compact__v5.0.0	format	PATCHED	
+merkle	dev	format_noisy__v5.0.0	format	PATCHED	
+merkle	dev	indep_probe__v5.0.0	independent	PATCHED	
+merkle	dev	indep_visibility__v5.0.0	independent	PATCHED	
+merkle	dev	indep_text__v5.0.0	independent	PATCHED	
+merkle	dev	indep_swap__v5.0.0	independent	PATCHED	
+merkle	dev	combo__v5.0.0	independent	PATCHED	probe+rename+layout
+merkle	dev	merged_S__v5.0.0	merged_S	PATCHED	after
+merkle	dev	merged_M__v5.0.0	merged_M	PATCHED	before
+merkle	dev	merged_L__v5.0.0	merged_L	PATCHED	before
+merkle	dev	rename__v5.7.0	rename	PATCHED	
+merkle	dev	format_compact__v5.7.0	format	PATCHED	
+merkle	dev	format_noisy__v5.7.0	format	PATCHED	
+merkle	dev	indep_probe__v5.7.0	independent	PATCHED	
+merkle	dev	indep_visibility__v5.7.0	independent	PATCHED	
+merkle	dev	indep_text__v5.7.0	independent	PATCHED	
+merkle	dev	indep_swap__v5.7.0	independent	PATCHED	
+merkle	dev	combo__v5.7.0	independent	PATCHED	probe+rename+layout
+merkle	dev	merged_S__v5.7.0	merged_S	PATCHED	before
+merkle	dev	merged_M__v5.7.0	merged_M	PATCHED	after
+merkle	dev	merged_L__v5.7.0	merged_L	PATCHED	between
+merkle	dev	dual__v4.7.0_v4.9.2	dual_copy	UNPATCHED	unpatched+patched copies
+merkle	dev	dual__v4.7.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+merkle	dev	dual__v4.8.0_v4.9.2	dual_copy	UNPATCHED	unpatched+patched copies
+merkle	dev	dual__v4.8.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+merkle	dev	dual__v4.9.0_v4.9.2	dual_copy	UNPATCHED	unpatched+patched copies
+merkle	dev	dual__v4.9.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+merkle	dev	dual__v4.9.1_v4.9.2	dual_copy	UNPATCHED	unpatched+patched copies
+merkle	dev	dual__v4.9.1_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+merkle	dev	dual__v4.9.2_v4.9.6	dual_copy	PATCHED	two patched copies
+merkle	dev	dual__v4.9.6_v5.0.0	dual_copy	PATCHED	two patched copies
+merkle	dev	dual__v5.0.0_v5.7.0	dual_copy	PATCHED	two patched copies
+merkle	dev	nearmiss__v4.9.2	near_miss	NOT_PATCHED	
+merkle	dev	nearmiss__v4.9.6	near_miss	NOT_PATCHED	
+merkle	dev	nearmiss__v5.0.0	near_miss	NOT_PATCHED	
+merkle	dev	nearmiss__v5.7.0	near_miss	NOT_PATCHED	
+merkle	dev	neg__oz496_Context	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__oz496_EIP712	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__oz496_ERC20	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__oz496_MinimalForwarder	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__oz496_Multicall	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__oz496_SignatureChecker	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__oz496_Strings	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__oz510_ERC2771Forwarder	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__permit2_SignatureVerification	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__solady_ECDSA	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__solady_MerkleProofLib	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__solady_SignatureCheckerLib	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__solmate_ERC20	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	neg__solmate_MerkleProofLib	negative_similar	NO_MATCH	similar, unrelated
+merkle	dev	host_S00	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S01	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S02	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S03	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S04	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S05	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S06	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S07	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S08	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_S09	host_S	NO_MATCH	unrelated real contract
+merkle	dev	host_M00	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M01	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M02	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M03	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M04	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M05	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M06	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M07	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M08	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_M09	host_M	NO_MATCH	unrelated real contract
+merkle	dev	host_L00	host_L	NO_MATCH	unrelated real contract
+merkle	dev	host_L01	host_L	NO_MATCH	unrelated real contract
+merkle	dev	host_L02	host_L	NO_MATCH	unrelated real contract
+merkle	dev	host_L03	host_L	NO_MATCH	unrelated real contract
+merkle	dev	host_L04	host_L	NO_MATCH	unrelated real contract
+merkle	dev	host_L05	host_L	NO_MATCH	unrelated real contract
+erc2771	dev	real__v4.0.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.1.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.2.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.3.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.3.3	real_tag	UNPATCHED	
+erc2771	dev	real__v4.3.2	real_tag	UNPATCHED	
+erc2771	dev	real__v4.3.1	real_tag	UNPATCHED	
+erc2771	dev	real__v4.4.2	real_tag	UNPATCHED	
+erc2771	dev	real__v4.4.1	real_tag	UNPATCHED	
+erc2771	dev	real__v4.4.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.5.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.6.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.7.3	real_tag	UNPATCHED	
+erc2771	dev	real__v4.7.1	real_tag	UNPATCHED	
+erc2771	dev	real__v4.7.2	real_tag	UNPATCHED	
+erc2771	dev	real__v4.7.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.8.2	real_tag	UNPATCHED	
+erc2771	dev	real__v4.8.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.8.1	real_tag	UNPATCHED	
+erc2771	dev	real__v4.8.3	real_tag	UNPATCHED	
+erc2771	dev	real__v4.9.6	real_tag	PATCHED	
+erc2771	dev	real__v4.9.4	real_tag	PATCHED	
+erc2771	dev	real__v4.9.0	real_tag	UNPATCHED	
+erc2771	dev	real__v4.9.5	real_tag	PATCHED	
+erc2771	dev	real__v4.9.3	real_tag	PATCHED	
+erc2771	dev	real__v4.9.1	real_tag	UNPATCHED	
+erc2771	dev	real__v4.9.2	real_tag	UNPATCHED	
+erc2771	dev	real__v5.0.2	real_tag	PATCHED	
+erc2771	dev	real__v5.0.1	real_tag	PATCHED	
+erc2771	dev	real__v5.0.0	real_tag	PATCHED	
+erc2771	dev	real__v5.1.0	real_tag	PATCHED	
+erc2771	dev	real__v5.2.0	real_tag	PATCHED	
+erc2771	dev	real__v5.3.0	real_tag	PATCHED	
+erc2771	dev	real__v5.4.0	real_tag	PATCHED	
+erc2771	dev	real__v5.5.0	real_tag	PATCHED	
+erc2771	dev	real__v5.6.1	real_tag	PATCHED	
+erc2771	dev	real__v5.6.0	real_tag	PATCHED	
+erc2771	dev	real__v5.7.0	real_tag	PATCHED	
+erc2771	dev	rename__v4.0.0	rename	UNPATCHED	
+erc2771	dev	format_compact__v4.0.0	format	UNPATCHED	
+erc2771	dev	format_noisy__v4.0.0	format	UNPATCHED	
+erc2771	dev	indep_probe__v4.0.0	independent	UNPATCHED	
+erc2771	dev	indep_visibility__v4.0.0	independent	UNPATCHED	
+erc2771	dev	indep_swap__v4.0.0	independent	UNPATCHED	
+erc2771	dev	combo__v4.0.0	independent	UNPATCHED	probe+rename+layout
+erc2771	dev	merged_S__v4.0.0	merged_S	UNPATCHED	after
+erc2771	dev	merged_M__v4.0.0	merged_M	UNPATCHED	after
+erc2771	dev	merged_L__v4.0.0	merged_L	UNPATCHED	before
+erc2771	dev	rename__v4.5.0	rename	UNPATCHED	
+erc2771	dev	format_compact__v4.5.0	format	UNPATCHED	
+erc2771	dev	format_noisy__v4.5.0	format	UNPATCHED	
+erc2771	dev	indep_probe__v4.5.0	independent	UNPATCHED	
+erc2771	dev	indep_visibility__v4.5.0	independent	UNPATCHED	
+erc2771	dev	indep_swap__v4.5.0	independent	UNPATCHED	
+erc2771	dev	combo__v4.5.0	independent	UNPATCHED	probe+rename+layout
+erc2771	dev	merged_S__v4.5.0	merged_S	UNPATCHED	between
+erc2771	dev	merged_M__v4.5.0	merged_M	UNPATCHED	between
+erc2771	dev	merged_L__v4.5.0	merged_L	UNPATCHED	before
+erc2771	dev	rename__v4.9.0	rename	UNPATCHED	
+erc2771	dev	format_compact__v4.9.0	format	UNPATCHED	
+erc2771	dev	format_noisy__v4.9.0	format	UNPATCHED	
+erc2771	dev	indep_probe__v4.9.0	independent	UNPATCHED	
+erc2771	dev	indep_visibility__v4.9.0	independent	UNPATCHED	
+erc2771	dev	indep_swap__v4.9.0	independent	UNPATCHED	
+erc2771	dev	combo__v4.9.0	independent	UNPATCHED	probe+rename+layout
+erc2771	dev	merged_S__v4.9.0	merged_S	UNPATCHED	between
+erc2771	dev	merged_M__v4.9.0	merged_M	UNPATCHED	after
+erc2771	dev	merged_L__v4.9.0	merged_L	UNPATCHED	after
+erc2771	dev	rename__v4.9.2	rename	UNPATCHED	
+erc2771	dev	format_compact__v4.9.2	format	UNPATCHED	
+erc2771	dev	format_noisy__v4.9.2	format	UNPATCHED	
+erc2771	dev	indep_probe__v4.9.2	independent	UNPATCHED	
+erc2771	dev	indep_visibility__v4.9.2	independent	UNPATCHED	
+erc2771	dev	indep_swap__v4.9.2	independent	UNPATCHED	
+erc2771	dev	combo__v4.9.2	independent	UNPATCHED	probe+rename+layout
+erc2771	dev	merged_S__v4.9.2	merged_S	UNPATCHED	between
+erc2771	dev	merged_M__v4.9.2	merged_M	UNPATCHED	before
+erc2771	dev	merged_L__v4.9.2	merged_L	UNPATCHED	between
+erc2771	dev	rename__v4.9.3	rename	PATCHED	
+erc2771	dev	format_compact__v4.9.3	format	PATCHED	
+erc2771	dev	format_noisy__v4.9.3	format	PATCHED	
+erc2771	dev	indep_probe__v4.9.3	independent	PATCHED	
+erc2771	dev	indep_visibility__v4.9.3	independent	PATCHED	
+erc2771	dev	indep_swap__v4.9.3	independent	PATCHED	
+erc2771	dev	combo__v4.9.3	independent	PATCHED	probe+rename+layout
+erc2771	dev	merged_S__v4.9.3	merged_S	PATCHED	before
+erc2771	dev	merged_M__v4.9.3	merged_M	PATCHED	after
+erc2771	dev	merged_L__v4.9.3	merged_L	PATCHED	before
+erc2771	dev	rename__v5.0.0	rename	PATCHED	
+erc2771	dev	format_compact__v5.0.0	format	PATCHED	
+erc2771	dev	format_noisy__v5.0.0	format	PATCHED	
+erc2771	dev	indep_probe__v5.0.0	independent	PATCHED	
+erc2771	dev	indep_visibility__v5.0.0	independent	PATCHED	
+erc2771	dev	combo__v5.0.0	independent	PATCHED	probe+rename+layout
+erc2771	dev	merged_S__v5.0.0	merged_S	PATCHED	before
+erc2771	dev	merged_M__v5.0.0	merged_M	PATCHED	after
+erc2771	dev	merged_L__v5.0.0	merged_L	PATCHED	after
+erc2771	dev	rename__v5.2.0	rename	PATCHED	
+erc2771	dev	format_compact__v5.2.0	format	PATCHED	
+erc2771	dev	format_noisy__v5.2.0	format	PATCHED	
+erc2771	dev	indep_probe__v5.2.0	independent	PATCHED	
+erc2771	dev	indep_visibility__v5.2.0	independent	PATCHED	
+erc2771	dev	combo__v5.2.0	independent	PATCHED	probe+rename+layout
+erc2771	dev	merged_S__v5.2.0	merged_S	PATCHED	before
+erc2771	dev	merged_M__v5.2.0	merged_M	PATCHED	after
+erc2771	dev	merged_L__v5.2.0	merged_L	PATCHED	between
+erc2771	dev	rename__v5.7.0	rename	PATCHED	
+erc2771	dev	format_compact__v5.7.0	format	PATCHED	
+erc2771	dev	format_noisy__v5.7.0	format	PATCHED	
+erc2771	dev	indep_probe__v5.7.0	independent	PATCHED	
+erc2771	dev	indep_visibility__v5.7.0	independent	PATCHED	
+erc2771	dev	combo__v5.7.0	independent	PATCHED	probe+rename+layout
+erc2771	dev	merged_S__v5.7.0	merged_S	PATCHED	between
+erc2771	dev	merged_M__v5.7.0	merged_M	PATCHED	after
+erc2771	dev	merged_L__v5.7.0	merged_L	PATCHED	after
+erc2771	dev	dual__v4.0.0_v4.9.3	dual_copy	UNPATCHED	unpatched+patched copies
+erc2771	dev	dual__v4.0.0_v5.0.0	dual_copy	UNPATCHED	unpatched+patched copies
+erc2771	dev	dual__v4.5.0_v4.9.3	dual_copy	UNPATCHED	unpatched+patched copies
+erc2771	dev	dual__v4.5.0_v5.0.0	dual_copy	UNPATCHED	unpatched+patched copies
+erc2771	dev	dual__v4.9.0_v4.9.3	dual_copy	UNPATCHED	unpatched+patched copies
+erc2771	dev	dual__v4.9.0_v5.0.0	dual_copy	UNPATCHED	unpatched+patched copies
+erc2771	dev	dual__v4.9.2_v4.9.3	dual_copy	UNPATCHED	unpatched+patched copies
+erc2771	dev	dual__v4.9.2_v5.0.0	dual_copy	UNPATCHED	unpatched+patched copies
+erc2771	dev	dual__v4.9.3_v5.0.0	dual_copy	PATCHED	two patched copies
+erc2771	dev	dual__v5.0.0_v5.2.0	dual_copy	PATCHED	two patched copies
+erc2771	dev	dual__v5.2.0_v5.7.0	dual_copy	PATCHED	two patched copies
+erc2771	dev	nearmiss__v4.9.3	near_miss	NOT_PATCHED	
+erc2771	dev	nearmiss__v5.0.0	near_miss	NOT_PATCHED	
+erc2771	dev	nearmiss__v5.2.0	near_miss	NOT_PATCHED	
+erc2771	dev	nearmiss__v5.7.0	near_miss	NOT_PATCHED	
+erc2771	dev	neg__oz496_Context	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__oz496_EIP712	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__oz496_ERC20	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__oz496_MinimalForwarder	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__oz496_Multicall	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__oz496_SignatureChecker	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__oz496_Strings	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__oz510_ERC2771Forwarder	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__permit2_SignatureVerification	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__solady_ECDSA	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__solady_MerkleProofLib	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__solady_SignatureCheckerLib	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__solmate_ERC20	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	neg__solmate_MerkleProofLib	negative_similar	NO_MATCH	similar, unrelated
+erc2771	dev	host_S00	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S01	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S02	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S03	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S04	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S05	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S06	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S07	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S08	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_S09	host_S	NO_MATCH	unrelated real contract
+erc2771	dev	host_M00	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M01	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M02	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M03	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M04	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M05	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M06	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M07	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M08	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_M09	host_M	NO_MATCH	unrelated real contract
+erc2771	dev	host_L00	host_L	NO_MATCH	unrelated real contract
+erc2771	dev	host_L01	host_L	NO_MATCH	unrelated real contract
+erc2771	dev	host_L02	host_L	NO_MATCH	unrelated real contract
+erc2771	dev	host_L03	host_L	NO_MATCH	unrelated real contract
+erc2771	dev	host_L04	host_L	NO_MATCH	unrelated real contract
+erc2771	dev	host_L05	host_L	NO_MATCH	unrelated real contract
+uups	test	real__v4.1.0	real_tag	UNPATCHED	
+uups	test	real__v4.2.0	real_tag	UNPATCHED	
+uups	test	real__v4.3.0	real_tag	UNPATCHED	
+uups	test	real__v4.3.1	real_tag	UNPATCHED	
+uups	test	real__v4.3.2	real_tag	PATCHED	
+uups	test	real__v4.3.3	real_tag	PATCHED	
+uups	test	real__v4.4.0	real_tag	PATCHED	
+uups	test	real__v4.4.1	real_tag	PATCHED	
+uups	test	real__v4.4.2	real_tag	PATCHED	
+uups	test	real__v4.5.0	real_tag	PATCHED	
+uups	test	real__v4.6.0	real_tag	PATCHED	
+uups	test	real__v4.7.0	real_tag	PATCHED	
+uups	test	real__v4.7.1	real_tag	PATCHED	
+uups	test	real__v4.7.2	real_tag	PATCHED	
+uups	test	real__v4.7.3	real_tag	PATCHED	
+uups	test	real__v4.8.0	real_tag	PATCHED	
+uups	test	real__v4.8.1	real_tag	PATCHED	
+uups	test	real__v4.8.2	real_tag	PATCHED	
+uups	test	real__v4.8.3	real_tag	PATCHED	
+uups	test	real__v4.9.0	real_tag	PATCHED	
+uups	test	real__v4.9.1	real_tag	PATCHED	
+uups	test	real__v4.9.2	real_tag	PATCHED	
+uups	test	real__v4.9.3	real_tag	PATCHED	
+uups	test	real__v4.9.4	real_tag	PATCHED	
+uups	test	real__v4.9.5	real_tag	PATCHED	
+uups	test	real__v4.9.6	real_tag	PATCHED	
+uups	test	real__v5.0.0	real_tag	PATCHED	
+uups	test	real__v5.0.1	real_tag	PATCHED	
+uups	test	real__v5.0.2	real_tag	PATCHED	
+uups	test	real__v5.1.0	real_tag	PATCHED	
+uups	test	real__v5.2.0	real_tag	PATCHED	
+uups	test	real__v5.3.0	real_tag	PATCHED	
+uups	test	real__v5.4.0	real_tag	PATCHED	
+uups	test	real__v5.5.0	real_tag	PATCHED	
+uups	test	real__v5.6.0	real_tag	PATCHED	
+uups	test	real__v5.6.1	real_tag	PATCHED	
+uups	test	real__v5.7.0	real_tag	PATCHED	
+uups	test	rename__v4.1.0	rename	UNPATCHED	
+uups	test	format_compact__v4.1.0	format	UNPATCHED	
+uups	test	format_noisy__v4.1.0	format	UNPATCHED	
+uups	test	indep_probe__v4.1.0	independent	UNPATCHED	
+uups	test	indep_swap__v4.1.0	independent	UNPATCHED	
+uups	test	combo__v4.1.0	independent	UNPATCHED	probe+rename+layout
+uups	test	merged_S__v4.1.0	merged_S	UNPATCHED	after
+uups	test	merged_M__v4.1.0	merged_M	UNPATCHED	after
+uups	test	merged_L__v4.1.0	merged_L	UNPATCHED	after
+uups	test	rename__v4.2.0	rename	UNPATCHED	
+uups	test	format_compact__v4.2.0	format	UNPATCHED	
+uups	test	format_noisy__v4.2.0	format	UNPATCHED	
+uups	test	indep_probe__v4.2.0	independent	UNPATCHED	
+uups	test	combo__v4.2.0	independent	UNPATCHED	probe+rename+layout
+uups	test	merged_S__v4.2.0	merged_S	UNPATCHED	after
+uups	test	merged_M__v4.2.0	merged_M	UNPATCHED	after
+uups	test	merged_L__v4.2.0	merged_L	UNPATCHED	before
+uups	test	rename__v4.3.0	rename	UNPATCHED	
+uups	test	format_compact__v4.3.0	format	UNPATCHED	
+uups	test	format_noisy__v4.3.0	format	UNPATCHED	
+uups	test	indep_probe__v4.3.0	independent	UNPATCHED	
+uups	test	combo__v4.3.0	independent	UNPATCHED	probe+rename+layout
+uups	test	merged_S__v4.3.0	merged_S	UNPATCHED	before
+uups	test	merged_M__v4.3.0	merged_M	UNPATCHED	between
+uups	test	merged_L__v4.3.0	merged_L	UNPATCHED	between
+uups	test	rename__v4.3.1	rename	UNPATCHED	
+uups	test	format_compact__v4.3.1	format	UNPATCHED	
+uups	test	format_noisy__v4.3.1	format	UNPATCHED	
+uups	test	indep_probe__v4.3.1	independent	UNPATCHED	
+uups	test	combo__v4.3.1	independent	UNPATCHED	probe+rename+layout
+uups	test	merged_S__v4.3.1	merged_S	UNPATCHED	after
+uups	test	merged_M__v4.3.1	merged_M	UNPATCHED	between
+uups	test	merged_L__v4.3.1	merged_L	UNPATCHED	between
+uups	test	rename__v4.3.2	rename	PATCHED	
+uups	test	format_compact__v4.3.2	format	PATCHED	
+uups	test	format_noisy__v4.3.2	format	PATCHED	
+uups	test	indep_probe__v4.3.2	independent	PATCHED	
+uups	test	indep_text__v4.3.2	independent	PATCHED	
+uups	test	combo__v4.3.2	independent	PATCHED	probe+rename+layout
+uups	test	merged_S__v4.3.2	merged_S	PATCHED	before
+uups	test	merged_M__v4.3.2	merged_M	PATCHED	before
+uups	test	merged_L__v4.3.2	merged_L	PATCHED	between
+uups	test	rename__v4.9.6	rename	PATCHED	
+uups	test	format_compact__v4.9.6	format	PATCHED	
+uups	test	format_noisy__v4.9.6	format	PATCHED	
+uups	test	indep_probe__v4.9.6	independent	PATCHED	
+uups	test	indep_text__v4.9.6	independent	PATCHED	
+uups	test	combo__v4.9.6	independent	PATCHED	probe+rename+layout
+uups	test	merged_S__v4.9.6	merged_S	PATCHED	after
+uups	test	merged_M__v4.9.6	merged_M	PATCHED	between
+uups	test	merged_L__v4.9.6	merged_L	PATCHED	after
+uups	test	rename__v5.0.0	rename	PATCHED	
+uups	test	format_compact__v5.0.0	format	PATCHED	
+uups	test	format_noisy__v5.0.0	format	PATCHED	
+uups	test	indep_probe__v5.0.0	independent	PATCHED	
+uups	test	indep_text__v5.0.0	independent	PATCHED	
+uups	test	combo__v5.0.0	independent	PATCHED	probe+rename+layout
+uups	test	merged_S__v5.0.0	merged_S	PATCHED	before
+uups	test	merged_M__v5.0.0	merged_M	PATCHED	between
+uups	test	merged_L__v5.0.0	merged_L	PATCHED	after
+uups	test	rename__v5.7.0	rename	PATCHED	
+uups	test	format_compact__v5.7.0	format	PATCHED	
+uups	test	format_noisy__v5.7.0	format	PATCHED	
+uups	test	indep_probe__v5.7.0	independent	PATCHED	
+uups	test	indep_text__v5.7.0	independent	PATCHED	
+uups	test	combo__v5.7.0	independent	PATCHED	probe+rename+layout
+uups	test	merged_S__v5.7.0	merged_S	PATCHED	between
+uups	test	merged_M__v5.7.0	merged_M	PATCHED	before
+uups	test	merged_L__v5.7.0	merged_L	PATCHED	between
+uups	test	dual__v4.1.0_v4.3.2	dual_copy	UNPATCHED	unpatched+patched copies
+uups	test	dual__v4.1.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+uups	test	dual__v4.2.0_v4.3.2	dual_copy	UNPATCHED	unpatched+patched copies
+uups	test	dual__v4.2.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+uups	test	dual__v4.3.0_v4.3.2	dual_copy	UNPATCHED	unpatched+patched copies
+uups	test	dual__v4.3.0_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+uups	test	dual__v4.3.1_v4.3.2	dual_copy	UNPATCHED	unpatched+patched copies
+uups	test	dual__v4.3.1_v4.9.6	dual_copy	UNPATCHED	unpatched+patched copies
+uups	test	dual__v4.3.2_v4.9.6	dual_copy	PATCHED	two patched copies
+uups	test	dual__v4.9.6_v5.0.0	dual_copy	PATCHED	two patched copies
+uups	test	dual__v5.0.0_v5.7.0	dual_copy	PATCHED	two patched copies
+uups	test	nearmiss__v4.3.2	near_miss	NOT_PATCHED	
+uups	test	nearmiss__v4.9.6	near_miss	NOT_PATCHED	
+uups	test	nearmiss__v5.0.0	near_miss	NOT_PATCHED	
+uups	test	nearmiss__v5.7.0	near_miss	NOT_PATCHED	
+uups	test	neg__oz496_Context	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__oz496_EIP712	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__oz496_ERC20	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__oz496_MinimalForwarder	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__oz496_Multicall	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__oz496_SignatureChecker	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__oz496_Strings	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__oz510_ERC2771Forwarder	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__permit2_SignatureVerification	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__solady_ECDSA	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__solady_MerkleProofLib	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__solady_SignatureCheckerLib	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__solmate_ERC20	negative_similar	NO_MATCH	similar, unrelated
+uups	test	neg__solmate_MerkleProofLib	negative_similar	NO_MATCH	similar, unrelated
+uups	test	host_S00	host_S	NO_MATCH	unrelated real contract
+uups	test	host_S01	host_S	NO_MATCH	unrelated real contract
+uups	test	host_S02	host_S	NO_MATCH	unrelated real contract
+uups	test	host_S03	host_S	NO_MATCH	unrelated real contract
+uups	test	host_S04	host_S	NO_MATCH	unrelated real contract
+uups	test	host_S05	host_S	NO_MATCH	unrelated real contract
+uups	test	host_S06	host_S	NO_MATCH	unrelated real contract
+uups	test	host_S07	host_S	NO_MATCH	unrelated real contract
+uups	test	host_S08	host_S	NO_MATCH	unrelated real contract
+uups	test	host_M00	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M01	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M02	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M03	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M04	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M05	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M06	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M07	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M08	host_M	NO_MATCH	unrelated real contract
+uups	test	host_M09	host_M	NO_MATCH	unrelated real contract
+uups	test	host_L00	host_L	NO_MATCH	unrelated real contract
+uups	test	host_L01	host_L	NO_MATCH	unrelated real contract
+uups	test	host_L02	host_L	NO_MATCH	unrelated real contract
+uups	test	host_L03	host_L	NO_MATCH	unrelated real contract
+uups	test	host_L04	host_L	NO_MATCH	unrelated real contract
+uups	test	host_L05	host_L	NO_MATCH	unrelated real contract
